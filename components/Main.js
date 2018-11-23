@@ -33,6 +33,12 @@ export default class Main extends Component {
       })
     }
   }
+  deleteTodo = (key) => {
+    this.state.todoArray.splice(key,1);
+    this.setState({
+      todoArray: this.state.todoArray
+    })
+  }
 
   render() {
 

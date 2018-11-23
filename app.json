@@ -9,6 +9,11 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "android": {
+      "package": "com.lingonsaft.myapp",
+      "versionCode": 1,
+      "icon":"./assets/icon.png"
+    },
     "splash": {
       "image": "",
       "resizeMode": "contain",
