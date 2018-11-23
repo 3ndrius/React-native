@@ -8,8 +8,19 @@ import {
   TouchableOpacity,
   } from 'react-native';
 
+  import Single from './Single';
+
 export default class Main extends Component {
+
+  state = {
+    todoArray: [],
+    todo: ''
+  }
   render() {
+
+    let notes = this.state.todoArray.map((val, key) => {
+      return <Single key={key} keyval={key} val={val} deleteMethod={ () => this.deleteTodo(key)} />
+    });
     return (
      <View style={styles.container}>
         <View style={styles.header}>
@@ -20,7 +31,7 @@ export default class Main extends Component {
         </ScrollView>
         <View style={styles.footer}>
           <TextInput style={styles.inputText}
-          placeholder='note'
+          placeholder='Add todos..'
           placeholderTextColor='white'
           underlineColorAndroid='transparent'>
           </TextInput>
