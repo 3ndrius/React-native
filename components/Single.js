@@ -9,7 +9,7 @@ export default class Single extends Component {
   render() {
     return (
       <View key={this.props.keyval} style={styles.note}>
-        <Text style={styles.noteText}>{this.props.val.date}</Text>
+        <Text style={styles.noteTextDate}>{this.props.val.date}</Text>
         <Text style={styles.noteText}>{this.props.val.note}</Text>
 
         <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
@@ -23,7 +23,7 @@ export default class Single extends Component {
 const styles = StyleSheet.create({
     note: {
         position: 'relative',
-        padding: 20,
+        padding: 10,
         paddingRight: 100,
         borderBottomWidth: 2,
         borderBottomColor: '#4C5C68'
@@ -31,7 +31,16 @@ const styles = StyleSheet.create({
     noteText: {
         paddingLeft: 20,
         borderLeftWidth: 10,
-        borderLeftColor: '#4C5C68'
+        borderLeftColor: '#1985A1',
+        fontSize:18
+    },
+    noteTextDate: {
+        paddingLeft: 20,
+        borderLeftWidth: 10,
+        borderLeftColor: '#1985A1',
+        color:'#697272',
+        fontSize:10,
+
     },
     noteDelete: {
         position: 'absolute',

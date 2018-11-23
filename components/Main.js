@@ -16,6 +16,24 @@ export default class Main extends Component {
     todoArray: [],
     todo: ''
   }
+  addTodo = () => {
+    if(this.state.todo) {
+      var d = new Date();
+      this.state.todoArray.push({
+        'date':d.getFullYear() + 
+        "/" + (d.getMonth() + 1 ) +
+        "/" + d.getDate(),
+        'note': this.state.todo
+      });
+      this.setState({
+       todoArray: this.state.todoArray,
+      });
+      this.setState({
+        todo: ''
+      })
+    }
+  }
+
   render() {
 
     let notes = this.state.todoArray.map((val, key) => {
@@ -27,16 +45,19 @@ export default class Main extends Component {
           <Text style={styles.headerText}>NOTE APP</Text>
         </View>
         <ScrollView style={styles.listContainer}>
-        
+        {notes}
         </ScrollView>
         <View style={styles.footer}>
           <TextInput style={styles.inputText}
           placeholder='Add todos..'
           placeholderTextColor='white'
-          underlineColorAndroid='transparent'>
+          underlineColorAndroid='transparent'
+          onChangeText = {(todo) => this.setState({todo}) }
+          value={this.state.todo}
+          >
           </TextInput>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={this.addTodo}>
           <Text style={styles.addButtonText} > + </Text>
         </TouchableOpacity>
      </View>
